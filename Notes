@@ -1,0 +1,4 @@
+* What is ptxas ? 
+    * How to get that summary ? 
+* https://github.com/nerfstudio-project/gsplat/issues/226: Had to pass `--gpus all` when starting docker
+
