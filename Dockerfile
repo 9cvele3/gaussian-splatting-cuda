@@ -5,8 +5,10 @@ RUN apt-get update && \
     apt-key adv --fetch-keys https://apt.kitware.com/keys/kitware-archive-latest.asc && \
     apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main" && \
     apt-get update && \
-    apt-get install -y 
+    apt-get install -y \
                 cmake \
+                curl \
+                git \
                 libgl1-mesa-dev \
                 libglu1-mesa-dev \
                 libtbb-dev \
@@ -21,5 +23,11 @@ RUN apt-get update && \
                 pkg-config \
                 python3-dev \
                 wayland-protocols \
-                wayland-scanner++ \
+                wayland-scanner++ 
 
+RUN git clone https://github.com/microsoft/vcpkg.git && \
+    cd vcpkg && \
+    ./bootstrap-vcpkg.sh
+
+RUN apt-get update && \
+    apt-get install -y zip 
