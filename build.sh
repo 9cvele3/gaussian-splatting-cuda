@@ -8,6 +8,7 @@ docker run \
     --rm -it \
     -e VCPKG_ROOT=/vcpkg \
     -v`pwd`:/app \
+    -v`pwd`/vcpkg:/vcpkg/installed \
     gsc \
     bash -c "cd /app && 
                 find / -iname 'vcpkg.cmake' && 
